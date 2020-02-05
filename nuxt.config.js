@@ -49,6 +49,7 @@ module.exports = {
     }],
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     '@nuxtjs/pwa'
   ],
   /*
@@ -56,6 +57,14 @@ module.exports = {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+  },
+  proxy: {
+    '/rss': {
+      target: 'https://b.hatena.ne.jp/simics-ja/bookmark.rss?of=1',
+      pathRewrite: {
+        '^/rss': '/'
+      }
+    }
   },
   /*
   ** Build configuration

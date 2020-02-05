@@ -80,7 +80,7 @@ export default {
   },
   async asyncData (store) {
     let hatena
-    await store.$axios.get('/rss').then((res) => {
+    await store.$axios.get(process.env.NODE_ENV === 'development' ? '/rss' : 'https://b.hatena.ne.jp/simics-ja/bookmark.rss?of=1').then((res) => {
       const parseString = require('xml2js').parseStringPromise
       const xml = res.data
       return (

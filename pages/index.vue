@@ -4,13 +4,21 @@
       <h1 class="title">
         simics-ja
       </h1>
-      <ul>
-        <li v-for="(item, index) in snsItems" :key="index">
-          <a :href="item.url">
-            <b-icon :icon="item.icon.name" :pack="item.icon.pack" size="is-large" />
-          </a>
-        </li>
-      </ul>
+      <div id="social-media-icons" class="is-mb-3">
+        <ul class="title">
+          <li v-for="(item, index) in snsItems" :key="index">
+            <a :href="item.url">
+              <b-icon :icon="item.icon.name" :pack="item.icon.pack" size="is-large" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="has-text-centered">
+      <h2>
+        INTERST TOPIC
+      </h2>
+      <div />
     </section>
   </div>
 </template>
@@ -35,3 +43,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+// social media
+#social-media-icons ul li {
+  display: inline;
+}
+</style>

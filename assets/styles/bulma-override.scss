@@ -35,15 +35,23 @@ $danger: $red;
 $danger-invert: findColorInvert($danger);
 $dark: #565676;
 $dark-invert: findColorInvert($dark);
-$light: #FAFAFA;
+$light: #EAEAFF;
 $light-invert: findColorInvert($light);
 // custom colors
 $main: #565676;
 $main-invert: findColorInvert($main);
-// Links
-$link: $primary;
-$link-invert: $primary-invert;
-$link-focus-border: $primary;
+// text color
+$background: $main;
+$border: $light-purple;
+$text: $light;
+$text-invert: findColorInvert($text);
+$text-light: $white-bis;
+$text-strong: $white;
+$link: $light-purple;
+$link-hover: $purple;
+$link-hover-border: $purple-invert;
+$link-invert: $light-purple-invert;
+$link-focus-border: $light-purple;
 
 
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
@@ -60,6 +68,12 @@ $colors: (
     "main": ($main, $main-invert)
 );
 
+// Generic variables
+$body-background-color: $background;
+$body-color: $text;
+$strong-color: $text;
+$body-size: 18px;
+$body-line-height: 1.65;
 
 // spacing helper from wrabit: https://gist.github.com/wrabit/47767c82a7b62f4fe0d931b94a9b489b
 $spacer: 1rem !default;
@@ -154,3 +168,6 @@ $grid-breakpoints: (
     }
   }
 }
+
+// component
+$title-color: $text-strong;

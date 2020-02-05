@@ -1,8 +1,49 @@
-// Set your colors
-$primary: #5c77ef;
+// Initial variables: https://bulma.io/documentation/customize/variables/#initial-variables
+$orange: #EE6352;
+$orange-invert: findColorInvert($orange);
+$yellow: #FFA630;
+$yellow-invert: findColorInvert($yellow);
+$green: #2CA58D;
+$green-invert: findColorInvert($green);
+$turquoise: #93E1D8;
+$turquoise-invert: findColorInvert($turquoise);
+$cyan: #90D7FF;
+$cyan-invert: findColorInvert($cyan);
+$blue: #4464AD;
+$blue-invert: findColorInvert($blue);
+$purple: #656CA9;
+$purple-invert: findColorInvert($purple);
+$red: #DB5461;
+$red-invert:findColorInvert($red);
+// custom colors
+$light-purple: #D5DCF9;
+$light-purple-invert: findColorInvert($light-purple);
+$pink: #F8BDC4;
+$pink-invert: findColorInvert($pink);
+
+// Derrived variables: https://bulma.io/documentation/customize/variables/#derived-variables
+// color assets
+$primary: $purple;
 $primary-invert: findColorInvert($primary);
-$twitter: #4099FF;
-$twitter-invert: findColorInvert($twitter);
+$info: $orange;
+$info-invert: findColorInvert($info);
+$success: $green;
+$success-invert: findColorInvert($success);
+$warning: $yellow;
+$warning-invert: findColorInvert($warning);
+$danger: $red;
+$danger-invert: findColorInvert($danger);
+$dark: #565676;
+$dark-invert: findColorInvert($dark);
+$light: #FAFAFA;
+$light-invert: findColorInvert($light);
+// custom colors
+$main: #565676;
+$main-invert: findColorInvert($main);
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
 
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
@@ -15,10 +56,100 @@ $colors: (
     "success": ($success, $success-invert),
     "warning": ($warning, $warning-invert),
     "danger": ($danger, $danger-invert),
-    "twitter": ($twitter, $twitter-invert)
+    "main": ($main, $main-invert)
 );
 
-// Links
-$link: $primary;
-$link-invert: $primary-invert;
-$link-focus-border: $primary;
+
+// spacing helper from wrabit: https://gist.github.com/wrabit/47767c82a7b62f4fe0d931b94a9b489b
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge((
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: $spacer,
+  4: ($spacer * 1.5),
+  5: ($spacer * 3)
+), $spacers);
+
+$grid-breakpoints: (
+  xs: 0,
+  mobile: 576px,
+  tablet: $tablet,
+  desktop: $desktop,
+  widescreen: $widescreen,
+  hd: $fullhd
+) !default;
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $length in $spacers {
+
+        .is-#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+        .is-#{$abbrev}t#{$infix}-#{$size},
+        .is-#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top: $length !important;
+        }
+        .is-#{$abbrev}r#{$infix}-#{$size},
+        .is-#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-right: $length !important;
+        }
+        .is-#{$abbrev}b#{$infix}-#{$size},
+        .is-#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-bottom: $length !important;
+        }
+        .is-#{$abbrev}l#{$infix}-#{$size},
+        .is-#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-left: $length !important;
+        }
+      }
+    }
+
+    // Some special margin utils
+    .is-m#{$infix}-auto { margin: auto !important; }
+    .is-mt#{$infix}-auto,
+    .is-my#{$infix}-auto {
+      margin-top: auto !important;
+    }
+    .is-mr#{$infix}-auto,
+    .is-mx#{$infix}-auto {
+      margin-right: auto !important;
+    }
+    .is-mb#{$infix}-auto,
+    .is-my#{$infix}-auto {
+      margin-bottom: auto !important;
+    }
+    .is-ml#{$infix}-auto,
+    .is-mx#{$infix}-auto {
+      margin-left: auto !important;
+    }
+  }
+}

@@ -1,13 +1,37 @@
 <template>
   <div class="container">
     <section class="has-text-centered">
-      <h2>
-        SNS
-      </h2>
+      <h1 class="title">
+        simics-ja
+      </h1>
+      <ul>
+        <li v-for="(item, index) in snsItems" :key="index">
+          <a :href="item.url">
+            <b-icon :icon="item.icon" />
+          </a>
+        </li>
+      </ul>
     </section>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      snsItems: [
+        {
+          title: 'github',
+          icon: 'github',
+          url: 'https://github.com/simics-ja/'
+        },
+        {
+          title: 'twitter',
+          icon: 'twitter',
+          url: 'https://twitter.com/simics_ja/'
+        }
+      ]
+    }
+  }
+}
 </script>

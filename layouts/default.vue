@@ -1,10 +1,16 @@
 <template>
   <div>
-    <section>
+    <section class="is-my-4">
       <div class="container has-text-centered">
-        <h1 class="title">
-          Title
-        </h1>
+        <nav id="main-nav">
+          <ul>
+            <li v-for="(item, index) in items" :key="index" class="is-mx-2">
+              <nuxt-link :to="item.to.name">
+                {{ item.title }}
+              </nuxt-link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </section>
     <section class="section">
@@ -16,7 +22,20 @@
 <script>
 export default {
   data () {
-    return {}
+    return {
+      items: [
+        {
+          title: 'Home',
+          icon: 'home',
+          to: { name: 'index' }
+        },
+        {
+          title: 'About',
+          icon: 'people',
+          to: { name: 'about' }
+        }
+      ]
+    }
   }
 }
 </script>
@@ -32,4 +51,9 @@ export default {
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
 
+// Custom class
+// navigation
+#main-nav ul li {
+  display: inline;
+}
 </style>

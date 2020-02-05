@@ -21,7 +21,7 @@
         </h2>
         <div class="is-size-7">
           <ul class="is-mx-auto">
-            <li v-for="(item, index) in hatena" :key="index" class="is-mb-1">
+            <li v-for="(item, i) in hatena" :key="i" class="is-mb-1">
               <p class="hatena-date">
                 {{ item['dc:date'][0] | truncate(10, '') }}
               </p>
@@ -32,7 +32,7 @@
               </p>
               <p class="hatena-tag has-text-right is-block">
                 <ul>
-                  <li v-for="(tag, index) in item['dc:subject']" :key="index" class="is-inline is-ml-1">
+                  <li v-for="(tag, j) in item['dc:subject']" :key="j" class="is-inline is-ml-1">
                     <a :href="tag | prefix('https://b.hatena.ne.jp/simics-ja/')">{{ tag }}</a>
                   </li>
                 </ul>
@@ -80,7 +80,13 @@ export default {
   },
   async asyncData (store) {
     let hatena
-    await store.$axios.get(process.env.NODE_ENV === 'development' ? '/rss' : 'https://b.hatena.ne.jp/simics-ja/bookmark.rss?of=1').then((res) => {
+    await store.$axios.get(process.env.NODE_ENV === 'development' ? '/rss' : 'https://b.hatena.ne.jp/simics-ja/bookmark.rss?of=1', {
+      headers:
+      {
+        'Content-Type': 'application/xml',
+        'Access-Control-Allow-Origin': '*'
+      }
+    }).then((res) => {
       const parseString = require('xml2js').parseStringPromise
       const xml = res.data
       return (
@@ -98,7 +104,6 @@ export default {
     }).then((res) => {
       hatena = res
     })
-    console.log(hatena)
     return {
       hatena
     }

@@ -72,3 +72,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+// Override Bulma's variables
+@import "assets/styles/bulma-override";
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+</style>

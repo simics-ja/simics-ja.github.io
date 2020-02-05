@@ -1,4 +1,3 @@
-
 module.exports = {
   mode: 'spa',
   /*
@@ -23,11 +22,13 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/fontawesome.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -41,7 +42,11 @@ module.exports = {
   */
   modules: [
     // Doc: https://buefy.github.io/#/documentation
-    ['nuxt-buefy', { defaultIconPack: 'fas' }],
+    ['nuxt-buefy', {
+      defaultIconPack: 'fas',
+      defaultIconComponent: 'font-awesome-icon',
+      materialDesignIcons: false
+    }],
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa'

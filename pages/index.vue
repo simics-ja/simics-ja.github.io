@@ -7,7 +7,7 @@
       <ul>
         <li v-for="(item, index) in snsItems" :key="index">
           <a :href="item.url">
-            <b-icon :icon="item.icon" />
+            <b-icon :icon="item.icon.name" :pack="item.icon.pack" size="is-large" />
           </a>
         </li>
       </ul>
@@ -22,12 +22,12 @@ export default {
       snsItems: [
         {
           title: 'github',
-          icon: 'github',
+          icon: { name: 'github', pack: 'fab' },
           url: 'https://github.com/simics-ja/'
         },
         {
           title: 'twitter',
-          icon: 'twitter',
+          icon: { name: 'twitter', pack: 'fab' },
           url: 'https://twitter.com/simics_ja/'
         }
       ]

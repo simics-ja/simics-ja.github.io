@@ -80,7 +80,7 @@ export default {
   },
   async asyncData (store) {
     let hatena
-    await store.$axios.get('https://my-hatenab.simics-ja.now.sh/get').then((res) => {
+    await store.$axios.get('https://my-hatenab-simics-ja.now.sh/get').then((res) => {
       hatena = res.data
     })
     return {

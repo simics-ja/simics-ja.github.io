@@ -80,29 +80,8 @@ export default {
   },
   async asyncData (store) {
     let hatena
-    await store.$axios.get(process.env.NODE_ENV === 'development' ? '/rss' : 'https://b.hatena.ne.jp/simics-ja/bookmark.rss?of=1', {
-      headers:
-      {
-        'Content-Type': 'application/xml',
-        'Access-Control-Allow-Origin': '*'
-      }
-    }).then((res) => {
-      const parseString = require('xml2js').parseStringPromise
-      const xml = res.data
-      return (
-        async (xml) => {
-          const res = await parseString(xml)
-            .then((res) => {
-              return res['rdf:RDF'].item
-            })
-            .catch((e) => {
-              return []
-            })
-          return res
-        }
-      )(xml)
-    }).then((res) => {
-      hatena = res
+    await store.$axios.get('https://my-hatenab.simics-ja.now.sh/get').then((res) => {
+      hatena = res.data
     })
     return {
       hatena

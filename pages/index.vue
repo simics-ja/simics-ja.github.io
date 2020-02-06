@@ -19,8 +19,8 @@
         <h2>
           INTEREST TOPIC
         </h2>
-        <div class="is-size-7">
-          <ul class="is-mx-auto">
+        <div class="is-size-7 is-mx-auto">
+          <ul>
             <li v-for="(item, i) in hatena" :key="i" class="is-mb-1">
               <p class="hatena-date">
                 {{ item['dc:date'][0] | truncate(10, '') }}
@@ -33,7 +33,7 @@
               <p class="hatena-tag has-text-right is-block">
                 <ul>
                   <li v-for="(tag, j) in item['dc:subject']" :key="j" class="is-inline is-ml-1">
-                    <a :href="tag | prefix('https://b.hatena.ne.jp/simics-ja/')">{{ tag }}</a>
+                    <a :href="tag | prefix('https://b.hatena.ne.jp/simics-ja/')" class="has-text-accent">{{ tag }}</a>
                   </li>
                 </ul>
               </p>
@@ -93,13 +93,15 @@ export default {
 
 <style lang="scss">
 #hatena-viewer {
-  display: inline-block;
-  max-width: 600px;
+  display: inline;
 }
 #hatena-viewer div {
+  max-width: 600px;
   padding: 1rem;
   border: solid 1px #EAEAFF;
   border-radius: 1rem;
+  word-wrap : break-word;
+  overflow-wrap : break-word;
   ul li {
     display: block;
     text-align: left;

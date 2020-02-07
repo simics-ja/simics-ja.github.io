@@ -79,10 +79,23 @@ export default {
     }
   },
   async asyncData (store) {
-    let hatena
-    await store.$axios.get('https://my-hatenab-simics-ja.now.sh/get').then((res) => {
-      hatena = res.data
+    const hatena = await store.$axios.get('https://get-request-repeater.simics-ja.now.sh/api/my-hatena-rss').then((results) => {
+      const parseString = require('xml2js').parseStringPromise
+      const xml = results.data
+      return (
+        async (xml) => {
+          const parsedItems = await parseString(xml)
+            .then((parsed) => {
+              return parsed['rdf:RDF'].item
+            })
+            .catch((e) => {
+              return []
+            })
+          return parsedItems
+        }
+      )(xml)
     })
+
     return {
       hatena
     }

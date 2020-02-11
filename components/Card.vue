@@ -26,12 +26,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.title {
-  color: black;
-}
+<style lang="scss" scoped>
 
-.content {
-  color: black;
-}
 </style>

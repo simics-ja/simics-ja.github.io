@@ -1,3 +1,6 @@
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
 // Initial variables: https://bulma.io/documentation/customize/variables/#initial-variables
 $orange: #EE6352;
 $orange-invert: findColorInvert($orange);

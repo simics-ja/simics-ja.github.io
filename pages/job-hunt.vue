@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <section class="has-text-centered section">
+    <section class="section">
       <p v-for="(prj, i) in projects" :key="i">
-        <card :title="prj.title" :content="prj.content" :image="prj.image" />
+        <card :title="prj.title" :content="prj.content" :imagePath="prj.imagePath" />
       </p>
     </section>
   </div>
@@ -18,7 +18,7 @@ export default {
   data () {
     return {
       projects: [
-        { title: 'test-title', content: 'test-content', image: 'https://www.google.co.jp/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png' }
+        { title: 'test-title', content: 'test-content', imagePath: 'https://www.google.co.jp/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png' }
       ]
     }
   }

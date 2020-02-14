@@ -4,15 +4,7 @@
       <h1 class="title">
         simics-ja
       </h1>
-      <div id="social-media-icons" class="is-mb-3">
-        <ul class="title">
-          <li v-for="(item, index) in snsItems" :key="index" class="is-inline">
-            <a :href="item.url">
-              <b-icon :icon="item.icon.name" :pack="item.icon.pack" size="is-large" />
-            </a>
-          </li>
-        </ul>
-      </div>
+      <sns :snsItems="snsItems" class="is-mb-3" />
     </section>
     <section class="has-text-centered">
       <div id="hatena-viewer" class="has-text-centered">
@@ -49,7 +41,12 @@
 </template>
 
 <script>
+import sns from '~/components/SNS'
+
 export default {
+  components: {
+    sns
+  },
   filters: {
     truncate (string, limit, suffix) {
       if (string) {
@@ -63,20 +60,6 @@ export default {
     }
   },
   data () {
-    return {
-      snsItems: [
-        {
-          title: 'github',
-          icon: { name: 'github', pack: 'fab' },
-          url: 'https://github.com/simics-ja/'
-        },
-        {
-          title: 'twitter',
-          icon: { name: 'twitter', pack: 'fab' },
-          url: 'https://twitter.com/simics_ja/'
-        }
-      ]
-    }
   },
   async asyncData (store) {
     const hatena = await store.$axios.get('https://get-request-repeater.simics-ja.now.sh/api/my-hatena-rss').then((results) => {
@@ -97,7 +80,8 @@ export default {
     })
 
     return {
-      hatena
+      hatena,
+      snsItems: require('~/assets/jsons/sns.json').snsItems
     }
   }
 }

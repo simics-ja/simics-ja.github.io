@@ -1,0 +1,14 @@
+{
+  "snsItems": [
+    {
+      "title": "github",
+      "icon": { "name": "github", "pack": "fab" },
+      "url": "https://github.com/simics-ja/"
+    },
+    {
+      "title": "twitter",
+      "icon": { "name": "twitter", "pack": "fab" },
+      "url": "https://twitter.com/simics_ja/"
+    }
+  ]
+}

@@ -16,10 +16,10 @@ export default {
     card
   },
   data () {
+  },
+  asyncData () {
     return {
-      projects: [
-        { title: 'test-title', content: 'test-content', imagePath: 'https://www.google.co.jp/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png' }
-      ]
+      projects: require('assets/jsons/projects.json').projects
     }
   }
 }

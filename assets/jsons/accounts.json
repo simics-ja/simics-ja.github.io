@@ -10,5 +10,12 @@
       "icon": { "name": "twitter", "pack": "fab" },
       "url": "https://twitter.com/simics_ja/"
     }
+  ],
+  "technicalItems": [
+    {
+      "title": "github",
+      "icon": { "name": "github", "pack": "fab" },
+      "url": "https://github.com/simics-ja/"
+    }
   ]
 }

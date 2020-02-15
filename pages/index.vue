@@ -81,7 +81,7 @@ export default {
 
     return {
       hatena,
-      snsItems: require('~/assets/jsons/sns.json').snsItems
+      snsItems: require('~/assets/jsons/accounts.json').snsItems
     }
   }
 }

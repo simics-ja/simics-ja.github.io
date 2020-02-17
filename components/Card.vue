@@ -1,6 +1,6 @@
 <template>
-  <div class="card is-mx-auto">
-    <header class="card-header title is-py-2 is-px-3">
+  <div class="card is-mx-auto is-my-5">
+    <header class="card-header is-size-4 is-py-2 is-px-3 has-text-centered">
       {{ title }}
     </header>
     <div class="card-image">
@@ -8,13 +8,14 @@
         <img :src="imagePath">
       </figure>
     </div>
-    <div class="content is-p-3">
+    <div class="content is-p-3 is-mb-0">
       <p>
         {{ content }}
       </p>
     </div>
-    <footer class="card-footer has">
-      <a :href="demoUrl" class="card-footer-item">Demo</a>
+    <footer class="card-footer">
+      <a :href="demoUrl" class="card-footer-item" target="_blank">Demo</a>
+      <a :href="repoUrl" class="card-footer-item" target="_blank">Repository</a>
     </footer>
   </div>
 </template>
@@ -32,15 +33,15 @@ export default {
     },
     imagePath: {
       type: String,
-      default: '#'
+      default: ''
     },
     demoUrl: {
       type: String,
-      default: '#'
+      default: ''
     },
-    srcUrl: {
+    repoUrl: {
       type: String,
-      default: '#'
+      default: ''
     }
   }
 }

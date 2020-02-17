@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import accounts from '~/assets/jsons/accounts.json'
 import sns from '~/components/SNS'
 
 export default {
@@ -60,6 +61,9 @@ export default {
     }
   },
   data () {
+    return {
+      snsItems: accounts.snsItems
+    }
   },
   async asyncData (store) {
     const hatena = await store.$axios.get('https://get-request-repeater.simics-ja.now.sh/api/my-hatena-rss').then((results) => {
@@ -80,8 +84,7 @@ export default {
     })
 
     return {
-      hatena,
-      snsItems: require('~/assets/jsons/accounts.json').snsItems
+      hatena
     }
   }
 }

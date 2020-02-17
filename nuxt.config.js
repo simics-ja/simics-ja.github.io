@@ -11,7 +11,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'My portofolio web site.' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico?ver=1.01' },
+      { rel: 'apple-touch-icon', type: 'image/png', href: '/apple-touch-icon-180x180.png?ver=1.01' }
     ]
   },
   /*

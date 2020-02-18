@@ -73,6 +73,9 @@ $colors: (
 );
 
 // Generic variables
+$family-sans-serif: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+$family-primary: $family-sans-serif;
+$family-secondary: $family-sans-serif;
 $body-background-color: $background;
 $body-color: $text;
 $strong-color: $text;

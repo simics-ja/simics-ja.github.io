@@ -1,16 +1,27 @@
 <template>
   <div class="container">
-    <section class="section">
+    <section class="has-text-centered section">
+      <h1 class="title">
+        Works
+      </h1>
       <p v-for="(prj, i) in projects" :key="i">
-        <card :title="prj.title" :content="prj.content" :imagePath="prj.imagePath" :demoUrl="prj.demoUrl" :repoUrl="prj.repoUrl" />
+        <card :title="prj.title" :content="prj.content" :imagePath="prj.imagePath" :links="prj.links" />
       </p>
     </section>
     <section class="has-text-centered section">
       <h1 class="title">
-        Other project
+        Other repository
       </h1>
       <sns :snsItems="snsItems" />
       <p>Click me!</p>
+    </section>
+    <section class="has-text-centered section">
+      <h1 class="title">
+        Design
+      </h1>
+      <p v-for="(prj, i) in designs" :key="i">
+        <card :title="prj.title" :content="prj.content" :imagePath="prj.imagePath" :links="prj.links" />
+      </p>
     </section>
   </div>
 </template>
@@ -31,8 +42,8 @@ export default {
   data () {
     return {
       projects: items.projects,
+      designs: items.designs,
       snsItems: accounts.technicalItems
-
     }
   }
 }

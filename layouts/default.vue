@@ -33,6 +33,11 @@ export default {
           title: 'About',
           icon: 'people',
           to: { name: 'about' }
+        },
+        {
+          title: 'Works',
+          icon: 'works',
+          to: { name: 'works' }
         }
       ]
     }

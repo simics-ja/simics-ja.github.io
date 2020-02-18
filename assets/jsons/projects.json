@@ -4,36 +4,61 @@
       "title": "ふぉと俳句の杜らりぃ",
       "content": "イオンモール伊丹で行われた「ふぉと俳句の杜らりぃ」というイベントで投稿システムの実装と運用を行いました．撮影した写真をもとに俳句を投稿したり，投稿時の位置情報によるラリーポイントを使ったビンゴを行う機能があります．WEBアプリ開発自体は初めてでしたが、2週間でPHPとMySQLの基礎を勉強して，1ヶ月でイベント運用に間に合わせたのでたいへん思い入れがあります．",
       "imagePath": "_nuxt/assets/images/portfolio/screenshot-haikunet.png",
-      "demoUrl": "https://hai-ku.net/",
-      "repoUrl": "https://github.com/simics-ja/hai-ku.net"
+      "links": [
+        { "name": "Demo", "url": "https://hai-ku.net" },
+        { "name": "Repository", "url": "https://github.com/simics-ja/hai-ku.net" }
+      ]
     },
     {
       "title": "UWW2017のWEBサイト",
       "content": "2017年12月に行われた国内研究会であるUbiquitous Wearable Workshop (UWW2017)のWEBサイトを制作しました．",
       "imagePath": "_nuxt/assets/images/portfolio/screenshot-uww2017.png",
-      "demoUrl": "http://cse.eedept.kobe-u.ac.jp/uww2017/",
-      "repoUrl": "https://github.com/simics-ja/uww2017"
+      "links": [
+        { "name": "Demo", "url": "http://cse.eedept.kobe-u.ac.jp/uww2017" },
+        { "name": "Repository", "url": "https://github.com/simics-ja/uww2017" }
+      ]
     },
     {
       "title": "UWW2018のWEBサイト",
       "content": "2018年12月に行われた国内研究会であるUbiquitous Wearable Workshop (UWW2018)のWEBサイトを制作しました．",
       "imagePath": "_nuxt/assets/images/portfolio/screenshot-uww2018.png",
-      "demoUrl": "http://cse.eedept.kobe-u.ac.jp/uww2018/",
-      "repoUrl": "https://github.com/simics-ja/uww2018"
+      "links": [
+        { "name": "Demo", "url": "http://cse.eedept.kobe-u.ac.jp/uww2018" }
+      ]
     },
     {
       "title": "本との出会いを促すデジタルサイネージ",
       "content": "楽天技術研究所のインターンシップの一貫として，神戸市立中央図書館に本を推薦するデジタルサイネージを設置し，1週間弱で200人以上の利用者に触っていただきました．楽天ブックスから書籍情報を収集し，デジタルサイネージに目を留めた来館者に本を推薦するシステムです．インタフェースには大学での研究結果が反映されており，その実地検証を行う目的がありました．また，神戸市に対する課題提起から実験計画まで自身で立案し，実質1ヶ月強という短い期間の中で実行に移すことができました．",
       "imagePath": "_nuxt/assets/images/portfolio/screenshot-positiveview.png",
-      "demoUrl": "https://positiveview-dev.firebaseapp.com/",
-      "repoUrl": "https://github.com/simics-ja/PositiveView-Public"
+      "links": [
+        { "name": "Demo", "url": "https://positiveview-dev.firebaseapp.com" },
+        { "name": "Repository", "url": "https://github.com/simics-ja/PositiveView-Public" }
+      ]
     },
     {
       "title": "UWW2019のWEBサイト",
       "content": "2019年12月に行われた国内研究会であるUbiquitous Wearable Workshop (UWW2018)のWEBサイトを制作しました．",
       "imagePath": "_nuxt/assets/images/portfolio/screenshot-uww2019.png",
-      "demoUrl": "http://cse.eedept.kobe-u.ac.jp/uww2019/",
-      "repoUrl": "https://github.com/simics-ja/uww2019"
+      "links": [
+        { "name": "Demo", "url": "http://cse.eedept.kobe-u.ac.jp/uww2019" },
+        { "name": "Repository", "url": "https://github.com/simics-ja/uww2019" }
+      ]
+    }
+  ],
+  "designs": [
+    {
+      "title": "研究室新聞",
+      "content": "2016年11月から2019年5月まで研究室の広報資料のデザインや編集を担当していました．",
+      "imagePath": "_nuxt/assets/images/portfolio/frontpage-newspaper.png",
+      "links": [
+        { "name": "Archive", "url": "https://tt-lab.jp/newspaper-archives/" }
+      ]
+    },
+    {
+      "title": "UWWプロシーディングスの表紙",
+      "content": "Ubiquitous Wearable Workshopのプロシーディングス（論文冊子）の表紙デザインを担当しました。",
+      "imagePath": "_nuxt/assets/images/portfolio/cover-uww-proc.png",
+      "links": []
     }
   ]
 }

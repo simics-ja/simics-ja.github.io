@@ -1,6 +1,6 @@
 <template>
   <div class="card is-mx-auto is-my-5">
-    <header class="card-header is-size-4 is-py-2 is-px-3 has-text-centered">
+    <header class="card-header is-size-4 is-py-2 is-px-3">
       {{ title }}
     </header>
     <div class="card-image">
@@ -9,13 +9,12 @@
       </figure>
     </div>
     <div class="content is-p-3 is-mb-0">
-      <p>
+      <p class="has-text-justified">
         {{ content }}
       </p>
     </div>
     <footer class="card-footer">
-      <a :href="demoUrl" class="card-footer-item" target="_blank">Demo</a>
-      <a :href="repoUrl" class="card-footer-item" target="_blank">Repository</a>
+      <a v-for="(link, i) in links" :key="i" :href="link.url" class="card-footer-item" target="_blank">{{ link.name }}</a>
     </footer>
   </div>
 </template>
@@ -35,13 +34,11 @@ export default {
       type: String,
       default: ''
     },
-    demoUrl: {
-      type: String,
-      default: ''
-    },
-    repoUrl: {
-      type: String,
-      default: ''
+    links: {
+      type: Array,
+      default () {
+        return []
+      }
     }
   }
 }

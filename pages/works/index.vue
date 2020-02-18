@@ -4,9 +4,11 @@
       <h1 class="title">
         Works
       </h1>
-      <p v-for="(prj, i) in projects" :key="i">
-        <card :title="prj.title" :content="prj.content" :imagePath="prj.imagePath" :links="prj.links" />
-      </p>
+      <div>
+        <div v-for="(prj, i) in projects" :key="i">
+          <card :title="prj.title" :content="prj.content" :imagePath="prj.imagePath" :links="prj.links" />
+        </div>
+      </div>
     </section>
     <section class="has-text-centered section">
       <h1 class="title">

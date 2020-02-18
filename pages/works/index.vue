@@ -37,12 +37,10 @@ import sns from '~/components/SNS'
 const cache = {}
 function importAll (r) {
   r.keys().forEach((key) => {
-    console.log(r(key))
-    cache[key] = r(key)
+    cache[key.substring(2)] = r(key)
   })
 }
 importAll(require.context('assets/images/portfolio', false, /\.png$/))
-console.log(cache)
 
 export default {
   components: {

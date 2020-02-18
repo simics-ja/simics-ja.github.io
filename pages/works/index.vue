@@ -34,7 +34,21 @@ import accounts from 'assets/jsons/accounts.json'
 import card from '~/components/Card'
 import sns from '~/components/SNS'
 
-require.context('assets/images/portfolio', false, /\.png$/)
+const images = require.context('assets/images/portfolio', false, /\.png$/)
+const imagesArray = Array.from(images.keys())
+console.log(images.keys())
+const constructed = []
+function constructItems (fileNames, constructed) {
+  fileNames.forEach((fileName) => {
+    constructed.push({
+      'src': fileName.substr(1)
+    })
+  })
+  return constructed
+}
+const res = constructItems(imagesArray, constructed)
+
+console.log(res)
 
 export default {
   components: {

@@ -6,7 +6,7 @@
       </h1>
       <div>
         <div v-for="(prj, i) in projects" :key="i">
-          <card :title="prj.title" :content="prj.content" :imagePath="prj.imagePath" :links="prj.links" />
+          <card :title="prj.title" :content="prj.content" :imageSrc="imageCache[prj.imageKey]" :links="prj.links" />
         </div>
       </div>
     </section>
@@ -22,7 +22,7 @@
         Design
       </h1>
       <p v-for="(prj, i) in designs" :key="i">
-        <card :title="prj.title" :content="prj.content" :imagePath="prj.imagePath" :links="prj.links" />
+        <card :title="prj.title" :content="prj.content" :imageSrc="imageCache[prj.imageKey]" :links="prj.links" />
       </p>
     </section>
   </div>
@@ -34,21 +34,15 @@ import accounts from 'assets/jsons/accounts.json'
 import card from '~/components/Card'
 import sns from '~/components/SNS'
 
-const images = require.context('assets/images/portfolio', false, /\.png$/)
-const imagesArray = Array.from(images.keys())
-console.log(images.keys())
-const constructed = []
-function constructItems (fileNames, constructed) {
-  fileNames.forEach((fileName) => {
-    constructed.push({
-      'src': fileName.substr(1)
-    })
+const cache = {}
+function importAll (r) {
+  r.keys().forEach((key) => {
+    console.log(r(key))
+    cache[key] = r(key)
   })
-  return constructed
 }
-const res = constructItems(imagesArray, constructed)
-
-console.log(res)
+importAll(require.context('assets/images/portfolio', false, /\.png$/))
+console.log(cache)
 
 export default {
   components: {
@@ -59,7 +53,8 @@ export default {
     return {
       projects: items.projects,
       designs: items.designs,
-      snsItems: accounts.technicalItems
+      snsItems: accounts.technicalItems,
+      imageCache: cache
     }
   }
 }

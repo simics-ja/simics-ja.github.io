@@ -5,7 +5,7 @@
     </header>
     <div class="card-image">
       <figure class="image">
-        <img :src="imagePath">
+        <img :src="imageSrc">
       </figure>
     </div>
     <div class="content is-p-3 is-mb-0">
@@ -30,7 +30,7 @@ export default {
       type: String,
       default: ''
     },
-    imagePath: {
+    imageSrc: {
       type: String,
       default: ''
     },

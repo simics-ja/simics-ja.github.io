@@ -23,7 +23,8 @@
       "content": "2018年12月に行われた国内研究会であるUbiquitous Wearable Workshop (UWW2018)のWEBサイトを制作しました．",
       "imageKey": "screenshot-uww2018.png",
       "links": [
-        { "name": "Demo", "url": "http://cse.eedept.kobe-u.ac.jp/uww2018" }
+        { "name": "Demo", "url": "http://cse.eedept.kobe-u.ac.jp/uww2018" },
+        { "name": "Repository", "url": "https://github.com/simics-ja/uww2018" }
       ]
     },
     {

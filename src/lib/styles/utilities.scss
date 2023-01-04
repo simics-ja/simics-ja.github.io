@@ -1,0 +1,12 @@
+@import './variables.scss';
+
+.text {
+	size: $text;
+}
+
+@each $suffix in $size-suffix {
+	$index: index($size-suffix, $suffix);
+	.text-#{$suffix} {
+		font-size: nth($text-sizes, $index);
+	}
+}

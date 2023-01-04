@@ -1,0 +1,24 @@
+@import './initialize.scss';
+@import './variables.scss';
+@import './utilities.scss';
+
+html {
+	background-color: $color-bg;
+	font-size: $base-font-size;
+}
+
+body {
+	font-family: $font-family;
+	color: $color-text;
+	font-size: $body-font-size;
+	line-height: $body-line-height;
+}
+
+a {
+	color: $color-text;
+	text-decoration: none;
+}
+
+a:hover {
+	color: $color-text-light;
+}

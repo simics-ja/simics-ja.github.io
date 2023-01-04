@@ -1,0 +1,39 @@
+$size-suffix: 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl';
+
+// Typography
+$font-family: theme(
+	'Helvetica Neue',
+	Arial,
+	'Hiragino Kaku Gothic ProN',
+	'Hiragino Sans',
+	Meiryo,
+	sans-serif
+);
+
+$base-font-size: 18px !default;
+
+$body-font-size: 1em !default;
+$body-line-height: 1.75 !default;
+
+$text-xs: 0.5rem;
+$text-sm: 0.75rem;
+$text-md: 1rem;
+$text-lg: 1.25rem;
+$text-xl: 1.5rem;
+$text-2xl: 2rem;
+$text-3xl: 2.5rem;
+$text-4xl: 3rem;
+$text: $text-md;
+$text-sizes: $text-xs, $text-sm, $text-md, $text-lg, $text-xl, $text-2xl, $text-3xl, $text-4xl;
+
+// Color
+$base-color-black: #25291cff;
+$base-color-white: #d8d8f6ff;
+$base-color-main: #2b193dff;
+$base-color-highlight: #ffd400ff;
+$base-color-accent: #d90368ff;
+
+$color-bg: $base-color-main;
+$color-text: $base-color-white;
+$color-text-dark: darken($color-text, 10deg);
+$color-text-light: lighten($color-text, 10deg);
